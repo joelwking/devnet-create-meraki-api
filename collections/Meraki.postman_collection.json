@@ -8,8 +8,8 @@
 	},
 	"item": [
 		{
-			"name": "DevNet Create",
-			"description": "Sample Postman collection for DevNet Create ",
+			"name": "DevNet Create GETs",
+			"description": "Sample Postman collection for DevNet Create issueing GETs",
 			"item": [
 				{
 					"name": "GetOrganizations",
@@ -141,6 +141,68 @@
 						],
 						"body": {},
 						"description": "--tags \"trafficanalysis\" The traffic analysis data for this network. Traffic Analysis with Hostname Visibility must be enabled on the network. "
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DevNet Create POST",
+			"description": "Example Meraki POST command(s)",
+			"item": [
+				{
+					"name": "Add VLAN",
+					"request": {
+						"url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/vlans",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "X-Cisco-Meraki-API-Key",
+								"value": "{{X-Cisco-Meraki-API-Key}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\": \"100\", \"name\":\"VOICE\",\"applianceIp\":\"192.0.2.1\",\"subnet\":\"192.0.2.0/24\"}"
+						},
+						"description": "--tags \"addvlan\" "
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DevNet Create PUT",
+			"description": "Example of using a PUT request to update an existing configuration.",
+			"item": [
+				{
+					"name": "Update VLAN",
+					"request": {
+						"url": "https://dashboard.meraki.com/api/v0/networks/{{networkId}}/vlans/{{VLANid}}",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "X-Cisco-Meraki-API-Key",
+								"value": "{{X-Cisco-Meraki-API-Key}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"fixedIpAssignments\":{\n\t\"13:37:de:ad:be:ef\":{\"ip\":\"192.0.2.100\",\"name\":\"ONEHUNDRED\"},\n\t\"13:37:de:ad:be:ea\":{\"ip\":\"192.0.2.101\",\"name\":\"ONE_o_ONE\"}},\n\"reservedIpRanges\":[{\"start\":\"192.0.2.100\",\"end\":\"192.0.2.199\",\"comment\":\"reserved IP range\"}],\n\"dnsNameservers\":\"opendns\"}"
+						},
+						"description": "--tags \"updatevlan\" "
 					},
 					"response": []
 				}
