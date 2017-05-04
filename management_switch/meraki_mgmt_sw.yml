@@ -1,0 +1,78 @@
+#!/usr/bin/ansible-playbook
+---
+#
+#      meraki_mgmt_sw.yml
+#
+#      Copyright (c) 2017 World Wide Technology, Inc.
+#      All rights reserved.
+#
+#      author: Joel W. King,  World Wide Technology
+#
+#
+- hosts: meraki_dashboard
+  connection: local
+
+  vars:
+   service_request_system: "http://rocket.sandbox.wwtatc.local:8000/new_switch"
+ 
+   # The variables from the API will be in this form:
+   #  job:
+   #     device: 
+   #       MAC: "00:e1:20:00:39:0e"
+   #       hostname: "nxos-737"
+   #     networkId: L_62937804792308
+   #     VLANid: 200
+
+  tasks:
+  - name: Decrypt the password file, the API key is encrypted 
+    include_vars: "./passwords.yml"
+    tags: all
+
+  - name:  Generate an API call to retrieve variables from our service request system 
+    uri:
+      url: "{{service_request_system}}"
+      method: GET
+      return_content: yes
+    register: new_switch 
+
+  - set_fact: job="{{new_switch.content | from_json }}"
+
+  - debug: msg="Processing {{job.serviceRequestNo}} {{job.device.MAC}} {{job.device.hostname}}"
+
+  - name: Locate the switch based on a match of the  MAC address 
+    meraki_facts:
+      dashboard: "{{inventory_hostname}}"
+      apikey: "{{meraki_params.apikey}}"
+      timespan: 86400
+      search_string: "{{job.device.MAC}}"
+
+  - name: Meraki API may return multiple instance of the client, use the first list element 
+    debug: msg="{{meraki[0].client.ip}} {{meraki[0].client.mac}} {{meraki[0].client.dhcpHostname}}"
+
+  - name: Add hostname and ip address assigned by Meraki to Infoblox
+    infoblox:
+       server: "{{infoblox.server}}"
+       username: "{{infoblox.username}}"
+       password: "{{infoblox.password}}"
+       action: add_host
+       api_version: "1.2"
+       dns_view: default
+       host: "{{job.device.hostname}}.example.net"
+       address: "{{meraki[0].client.ip}}"
+       comment: "{{meraki[0].client.dhcpHostname}} Service Request {{job.serviceRequestNo}} updated by Ansible from {{ansible_hostname}} by {{ansible_user_id}}"
+    ignore_errors: yes
+
+  - name: Make a fixed IP address assignment for the switch using the Meraki API
+    uri:
+      # uri module not always processing HTTP redirects properly,
+      # url: "https://dashboard.meraki.com/api/v0/networks/{{job.networkId}}/vlans/{{job.VLANid}}"
+      url: "https://n118.meraki.com/api/v0/networks/{{job.networkId}}/vlans/{{job.VLANid}}"
+      method: PUT
+      follow_redirects: all 
+      return_content: yes
+      status_code: [200]
+      headers: 
+          X-Cisco-Meraki-API-Key: "{{meraki_params.apikey}}"
+          Content-Type: "application/json"
+      body: '{"fixedIpAssignments":{ "{{meraki[0].client.mac}}":{"ip":"{{meraki[0].client.ip}}","name":"{{job.device.hostname}}.example.net"}}}'
+      body_format: json
