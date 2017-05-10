@@ -65,23 +65,28 @@ Vagrant.configure(2) do |config|
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
-  config.vm.provision "shell", inline: <<-SHELL
+  
+  config.vm.provision  "shell", inline: <<-SHELL
   sudo apt-get update
   sudo apt-get install python-pip -y
-  sudo apt-get install  python-dev -y
+  sudo apt-get install python-dev -y
+  sudo pip install requests
+  sudo pip install pydevd
   sudo apt-get install git -y 
   sudo apt-get install software-properties-common -y
   sudo apt-add-repository ppa:ansible/ansible
   sudo apt-get update -y
   sudo apt-get install ansible -y
-  echo export ANSIBLE_CONFIG="$HOME/ansible/playbooks/ansible.cfg" >>/home/ubuntu/.profile
-  echo export PYTHONPATH="/usr/share/ansible" >>/home/ubuntu/.profile
-  mkdir /home/ubuntu/ansible/
-  mkdir /home/ubuntu/ansible/playbooks
-  cd /home/ubuntu/ansible/playbooks
-  echo "[defaults]" >ansible.cfg
-  echo "inventory      = /home/ubuntu/ansible/playbooks/hosts" >>ansible.cfg
-  echo "library        = /usr/share/ansible" >>ansible.cfg
+  sudo mkdir /usr/share/ansible
+
+  sudo -u ubuntu echo export ANSIBLE_CONFIG="/home/ubuntu/ansible/playbooks/ansible.cfg" >>/home/ubuntu/.profile
+  sudo -u ubuntu echo export PYTHONPATH="/home/ubuntu/ansible/playbooks/library:/usr/share/ansible" >>/home/ubuntu/.profile
+  sudo -u ubuntu mkdir /home/ubuntu/ansible/
+  sudo -u ubuntu mkdir /home/ubuntu/ansible/playbooks
+  sudo -u ubuntu mkdir /home/ubuntu/ansible/playbooks/library
+  sudo -u ubuntu echo "[defaults]" >/home/ubuntu/ansible/playbooks/ansible.cfg
+  sudo -u ubuntu echo "inventory      = /home/ubuntu/ansible/playbooks/hosts" >>/home/ubuntu/ansible/playbooks/ansible.cfg
+  sudo -u ubuntu echo "library        = /home/ubuntu/ansible/playbooks/library:/usr/share/ansible" >>/home/ubuntu/ansible/playbooks/ansible.cfg
 
   SHELL
 end
