@@ -11,10 +11,12 @@ Chrome Postman is an API developers tool which has gained wide adoption in the i
 Download and install the free version at https://www.getpostman.com/.
 
 #### Download the Meraki Postman collection
-The Meraki developer portal hosts a postman collection which represents all the provisioning APIs available. Download them at developers.meraki.com/post/157014824756/dashboard-api-postman-collection and import the collection to your Postman instance.
+The Meraki developer portal hosts a postman collection which represents all the provisioning APIs available. Download them at https://developers.meraki.com/post/157014824756/dashboard-api-postman-collection and import the collection to your Postman instance.
 
+### Install VirtualBox
+Oracle VirtualBox is general-purpose software to virtualize x86 hardware to create development environments on your laptop. By installing VirtualBox on your laptop, we isolate your laptop OS from the development environment. Virtual Box, along with Vagrant, allows you to create an ephemeral virtual environment which can be instanciated and destroyed in a few minutes, with minimal systems administration experience.
 
-### Install Virtual Box
+Download and install VirtualBox at https://www.virtualbox.org/wiki/Downloads.
 
 ### Install Vagrant
 
