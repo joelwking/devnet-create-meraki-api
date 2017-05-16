@@ -5,10 +5,14 @@ These instructions describe the process of building the development environment 
 The Meraki dashboard API documentation landing page is on [developers.meraki.com](http://developers.meraki.com/tagged/Dashboard). The detailed API documentation is available on the [Meraki dashboard](https://dashboard.meraki.com/api_docs), for the workshop, the sample use case is to add a [VLAN](https://dashboard.meraki.com/api_docs#add-a-vlan).
 
 ### Chrome Postman
+Chrome Postman is an API developers tool which has gained wide adoption in the industry. As Putty is to SSH access to routers and switches, Postman is to device APIs. One feature is the ability to export, share, and import collections of API calls.
 
 #### Install Postman
+Download and install the free version at https://www.getpostman.com/.
 
 #### Download the Meraki Postman collection
+The Meraki developer portal hosts a postman collection which represents all the provisioning APIs available. Download them at developers.meraki.com/post/157014824756/dashboard-api-postman-collection and import the collection to your Postman instance.
+
 
 ### Install Virtual Box
 
