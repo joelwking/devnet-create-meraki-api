@@ -1,7 +1,8 @@
 ## Overview
-These instructions describe the process of building the development environment for the *Network Automation Integration* section of API 102: Programming with Meraki APIs. This workshop was presented at [DevNet Create](https://www.devnetcreate.io/2017/) May 2017
+These instructions describe the process of building the development environment for the *Network Automation Integration* section of API 102: Programming with Meraki APIs. This workshop is at [DevNet Create](https://www.devnetcreate.io/2017/) May 2017
 
 ### Review the Meraki API documentation
+The Meraki dashboard API documentation landing page is on [developers.meraki.com](http://developers.meraki.com/tagged/Dashboard). The detailed API documentation is available on the [Meraki dashboard](https://dashboard.meraki.com/api_docs), for the workshop, the sample use case is to add a [VLAN](https://dashboard.meraki.com/api_docs#add-a-vlan).
 
 ### Chrome Postman
 
