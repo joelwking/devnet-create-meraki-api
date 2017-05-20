@@ -43,7 +43,7 @@ Retype new UNIX password: devnetcreate
 passwd: password updated successfully
 ```
 ### Ansible hacking
-
+I wrote the ansible-hacking environment as a [mock](https://en.wikipedia.org/wiki/Mock_object) object to facilitate debugging. My goal was to facilitate remote execution and debugging from PyCharm Pro, without the need to install Ansible from source and execute the `ansible/hacking/test-module` to test my code.
 
 #### Download ansible-hacking
 Download the python and JSON files to the `~/ansible/playbooks/library` directory
