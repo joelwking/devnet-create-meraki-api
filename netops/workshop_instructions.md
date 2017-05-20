@@ -42,8 +42,10 @@ Enter new UNIX password: devnetcreate
 Retype new UNIX password: devnetcreate
 passwd: password updated successfully
 ```
+### Ansible hacking
 
-### Download ansible-hacking
+
+#### Download ansible-hacking
 Download the python and JSON files to the `~/ansible/playbooks/library` directory
 ```
 cd ~/ansible/playbooks/library
