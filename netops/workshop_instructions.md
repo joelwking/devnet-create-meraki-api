@@ -19,11 +19,29 @@ Oracle VirtualBox is general-purpose software to virtualize x86 hardware to crea
 Download and install VirtualBox at https://www.virtualbox.org/wiki/Downloads.
 
 ### Install Vagrant
+Vagrant is a tool for building and managing virtual machine environments. Download and install the proper Vagrant package for your operating system and architecture. https://www.vagrantup.com/downloads.html.
 
 ### Install PyCharm Pro
-PyCharm Pro offers a 30 day evaluation license.
+PyCharm Pro offers a 30 day evaluation license. PyCharm Professional Edition includes support for Remote development capabilities, run/debug. While the Professional Edition is a licensed product, as my friend [Teren Bryson](@SomeClown) said, it takes Python programming to a whole new level.
+
+Download and install the appropriate package for your OS at https://www.jetbrains.com/pycharm/download/
 
 ### Create the Ansible virtual machine
+In this step we create a directory, download the Vagrantfile, and instanciate and provision the virtual machine for the workshop exercises.
+
+Assuming you are running a Mac or Windows, create a directory, e.g. `./devnetcreate`, enter the directory, and download the Vagrant file from the repository. 
+```
+https://raw.githubusercontent.com/joelwking/devnet-create-meraki-api/master/netops/Vagrantfile
+```
+Run `vagrant up` to instanciate the VM and provision it.
+
+SSH to the VM by issueing the command `vagrant ssh`. Once logged in, set the password for the userid `ubuntu` by 
+```
+$ sudo passwd ubuntu
+Enter new UNIX password: devnetcreate
+Retype new UNIX password: devnetcreate
+passwd: password updated successfully
+```
 
 ### Download ansible-hacking
 Download the python and JSON files to the `~/ansible/playbooks/library` directory
