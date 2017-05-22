@@ -64,23 +64,25 @@ PyCharm Pro offers a 30 day evaluation license. PyCharm Professional Edition inc
 Download and install the appropriate package for your OS at https://www.jetbrains.com/pycharm/download/
 
 ### Invoke and Configure PyCharm Pro
+Pycharm is a powerful utility, but is also not the most intuitative to to configure
+
 Start PyCharm Pro and create a new project using the directory you just cloned the Meraki Python code. We will also configure PyCharm to use the virtual machine created in previous steps as the target of our remote execution and debugging.
 
 #### Create Project
 It is helpful to have the SSH session to the virtual machine active, as well as the Meraki dashboard. Create a new project using the directory where we cloned the Meraki Python code.
 
-![Example of creating new Project](/images/Create_new_project_1.png "Create New Project")
+![Example of creating new Project](https://github.com/joelwking/devnet-create-meraki-api/blob/master/netops/images/Create_new_project_1.png "Create New Project")
 
-![Ignore the warning about the directory not empty](/images/Create_project_directory_not_empty.png "Directory not empty")
+![Ignore the warning about the directory not empty](https://github.com/joelwking/devnet-create-meraki-api/blob/master/netops/images/Create_project_directory_not_empty.png "Directory not empty")
 
-The project should contain the files from the Meraki repo. ![Project files](/image/Create_new_project_2.png "Project files")
+The project should contain the files from the Meraki repo. ![Project files](https://github.com/joelwking/devnet-create-meraki-api/blob/master/netops/image/Create_new_project_2.png "Project files")
 
 #### Configure Remote Python Interpreter
 We need to configure a remote Python Interpreter. We will add a server named `devnetcreate`, using the IP address of the VM, `192.168.56.200` and specify the username of `ubuntu`. Files will be deployed using sFTP
 
-![Deployment Configuration](/images/Deployment_server_1.png "Deployment Server")
+![Deployment Configuration](https://github.com/joelwking/devnet-create-meraki-api/blob/master/netops/images/Deployment_server_1.png "Deployment Server")
 
 While configuring this screen, test the sFTP connection.
 
-The deployment path is relative to the home directory of the deployment server. This mapping between your laptop project directory and the deployment path allows PyCharm to deploy, or upload, files to the ![Deployment Path](/images/Deployment_path.png "Deployment Path")
+The deployment path is relative to the home directory of the deployment server. This mapping between your laptop project directory and the deployment path allows PyCharm to deploy, or upload, files to the ![Deployment Path](https://github.com/joelwking/devnet-create-meraki-api/blob/master/netops/images/Deployment_path.png "Deployment Path")
 
