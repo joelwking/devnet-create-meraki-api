@@ -71,18 +71,24 @@ Start PyCharm Pro and create a new project using the directory you just cloned t
 #### Create Project
 It is helpful to have the SSH session to the virtual machine active, as well as the Meraki dashboard. Create a new project using the directory where we cloned the Meraki Python code.
 
-![Example of creating new Project](https://github.com/joelwking/devnet-create-meraki-api/blob/master/netops/images/Create_new_project_1.png "Create New Project")
+##### Example of creating a new project
+![Example of creating new project](https://github.com/joelwking/devnet-create-meraki-api/blob/master/netops/images/Create_new_project_1.png "Create New Project")
 
+##### Ignore the warning about the directory not empty
 ![Ignore the warning about the directory not empty](https://github.com/joelwking/devnet-create-meraki-api/blob/master/netops/images/Create_project_directory_not_empty.png "Directory not empty")
 
+##### Verify the project contains the files from the Meraki repo
 The project should contain the files from the Meraki repo. ![Project files](https://github.com/joelwking/devnet-create-meraki-api/blob/master/netops/image/Create_new_project_2.png "Project files")
 
 #### Configure Remote Python Interpreter
 We need to configure a remote Python Interpreter. We will add a server named `devnetcreate`, using the IP address of the VM, `192.168.56.200` and specify the username of `ubuntu`. Files will be deployed using sFTP
 
+##### Deployment Configuration
 ![Deployment Configuration](https://github.com/joelwking/devnet-create-meraki-api/blob/master/netops/images/Deployment_server_1.png "Deployment Server")
 
 While configuring this screen, test the sFTP connection.
 
-The deployment path is relative to the home directory of the deployment server. This mapping between your laptop project directory and the deployment path allows PyCharm to deploy, or upload, files to the ![Deployment Path](https://github.com/joelwking/devnet-create-meraki-api/blob/master/netops/images/Deployment_path.png "Deployment Path")
+The deployment path is relative to the home directory of the deployment server. This mapping between your laptop project directory and the deployment path allows PyCharm to deploy, or upload, files to the 
+
+![Deployment Path](https://github.com/joelwking/devnet-create-meraki-api/blob/master/netops/images/Deployment_path.png "Deployment Path")
 
