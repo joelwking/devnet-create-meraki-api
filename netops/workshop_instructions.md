@@ -21,11 +21,6 @@ Download and install VirtualBox at https://www.virtualbox.org/wiki/Downloads.
 ### Install Vagrant
 Vagrant is a tool for building and managing virtual machine environments. Download and install the proper Vagrant package for your operating system and architecture. https://www.vagrantup.com/downloads.html.
 
-### Install PyCharm Pro
-PyCharm Pro offers a 30 day evaluation license. PyCharm Professional Edition includes support for Remote development capabilities, run/debug. While the Professional Edition is a licensed product, as my friend [Teren Bryson](@SomeClown) said, it takes Python programming to a whole new level.
-
-Download and install the appropriate package for your OS at https://www.jetbrains.com/pycharm/download/
-
 ### Create the Ansible virtual machine
 In this step we create a directory, download the Vagrantfile, and instanciate and provision the virtual machine for the workshop exercises.
 
@@ -63,7 +58,21 @@ Edit the `ansible_hacking.json` and substitute the appropriate values for the ke
 ### Clone the sample Meraki Python code
 https://github.com/joelwking/ansible-meraki
 
-### Start PyCharm
-Start PyCharm Pro and create a new project using the directory you just cloned the Meraki Python code.
+### Install PyCharm Pro
+PyCharm Pro offers a 30 day evaluation license. PyCharm Professional Edition includes support for Remote development capabilities, run/debug. While the Professional Edition is a licensed product, as my friend [Teren Bryson](@SomeClown) said, it takes Python programming to a whole new level.
 
-### Configure PyCharm
+Download and install the appropriate package for your OS at https://www.jetbrains.com/pycharm/download/
+
+### Invoke and Configure PyCharm Pro
+Start PyCharm Pro and create a new project using the directory you just cloned the Meraki Python code. We will also configure PyCharm to use the virtual machine created in previous steps as the target of our remote execution and debugging.
+
+#### Create Project
+It is helpful to have the SSH session to the virtual machine active, as well as the Meraki dashboard. Create a new project using the directory where we cloned the Meraki Python code.
+
+![Example of creating new Project](/images/Create_new_project_1.png "Create New Project")
+
+![Ignore the warning about the directory not empty](/images/Create_project_directory_not_empty.png "Directory not empty")
+
+The project should contain the files from the Meraki repo. ![Project files](/image/Create_new_project_2.png "Project files")
+
+
