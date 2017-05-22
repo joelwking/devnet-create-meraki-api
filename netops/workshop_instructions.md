@@ -75,4 +75,12 @@ It is helpful to have the SSH session to the virtual machine active, as well as 
 
 The project should contain the files from the Meraki repo. ![Project files](/image/Create_new_project_2.png "Project files")
 
+#### Configure Remote Python Interpreter
+We need to configure a remote Python Interpreter. We will add a server named `devnetcreate`, using the IP address of the VM, `192.168.56.200` and specify the username of `ubuntu`. Files will be deployed using sFTP
+
+![Deployment Configuration](/images/Deployment_server_1.png "Deployment Server")
+
+While configuring this screen, test the sFTP connection.
+
+The deployment path is relative to the home directory of the deployment server. This mapping between your laptop project directory and the deployment path allows PyCharm to deploy, or upload, files to the ![Deployment Path](/images/Deployment_path.png "Deployment Path")
 
