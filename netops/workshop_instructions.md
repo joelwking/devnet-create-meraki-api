@@ -88,7 +88,33 @@ We need to configure a remote Python Interpreter. We will add a server named `de
 
 While configuring this screen, test the sFTP connection.
 
-The deployment path is relative to the home directory of the deployment server. This mapping between your laptop project directory and the deployment path allows PyCharm to deploy, or upload, files to the 
+##### Deployment path
+The deployment path is relative to the home directory of the deployment server. This mapping between your laptop project directory and the deployment path allows PyCharm to deploy, or upload, files to the target VM.
 
 ![Deployment Path](https://github.com/joelwking/devnet-create-meraki-api/blob/master/netops/images/Deployment_path.png "Deployment Path")
 
+### Remote Execution
+By using the mouse to right click on the program in the editing window, you can run the program, debug the program, and upload the program to the target VM.
+
+Before executing, you must uploaded all necessary modules. In this example, you will need to have these modules on the targe VM.
+```
+ubuntu@ubuntu-xenial:~/ansible/playbooks/library$ ls -salt
+total 56
+ 8 -rw-rw-r-- 1 ubuntu ubuntu  4744 May 22 13:28 meraki_vlan.py
+ 4 drwxr-xr-x 2 ubuntu ubuntu  4096 May 22 13:19 .
+ 4 -rw-rw-r-- 1 ubuntu ubuntu   251 May 22 13:13 ansible_hacking.json
+ 4 -rw-rw-r-- 1 ubuntu ubuntu  1996 May 21 23:57 ansible_hacking.py
+12 -rw-rw-r-- 1 ubuntu ubuntu 11502 May 21 23:56 Meraki_Connector.py
+ 4 drwxr-xr-x 3 ubuntu ubuntu  4096 May 21 23:46 ..
+ubuntu@ubuntu-xenial:~/ansible/playbooks/library
+```
+Additionally, the `ansible_hacking.json` module must be modified to include the API key and other values for your deployment.
+Review the instructions for this module at https://github.com/joelwking/ansible-hacking
+
+![Remote Execution](https://github.com/joelwking/devnet-create-meraki-api/blob/master/netops/images/Remote_execution_.png "Remote Execution")
+
+The console output from the remote execution is displayed. Because the `ansible-hacking` JSON and Python code is the the library directory, this sample code is running outside the Ansible framework.
+
+### Remote Debug
+
+![Remote Debug](https://github.com/joelwking/devnet-create-meraki-api/blob/master/netops/images/Debug_output.png "Remote Debug")
