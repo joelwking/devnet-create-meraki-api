@@ -116,5 +116,12 @@ Review the instructions for this module at https://github.com/joelwking/ansible-
 The console output from the remote execution is displayed. Because the `ansible-hacking` JSON and Python code is the the library directory, this sample code is running outside the Ansible framework.
 
 ### Remote Debug
+The remote debugging capability is a powerful feature of PyCharm and is a great aid in developing your modules. To use the debug feature, you will need to uncomment the `pydevd` statements and upload the modified file to the remote server.
+
+Initiate a remote debug by right clicking on the program name in the editing window and select `debug`. You should see both a debug window and a console window at the bottom of the window. 
 
 ![Remote Debug](https://github.com/joelwking/devnet-create-meraki-api/blob/master/netops/images/Debug_output.png "Remote Debug")
+
+To enable breakpoints in the program, you click on the area between the line numbers and the source code. A red ball will appear, indicating the code will suspend at that instruction line.
+
+You control debugging by using the icons at the left of the Debugger window. You can set break points, resume program execution, and examine variables in the Debugger window.
